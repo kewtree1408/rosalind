@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 
-from solution import dna_to_rna
+try:
+    from solution import dna_to_rna
+except ImportError:
+    from .solution import dna_to_rna
+
 import unittest
 
 

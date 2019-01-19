@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 
-from solution import nucleo_stats
+try:
+    from solution import nucleo_stats
+except ImportError:
+    from .solution import nucleo_stats
+
 import unittest
 
 
