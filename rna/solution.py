@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from collections import defaultdict
+import pathlib
 
 
 def dna_to_rna(dna_seq):
@@ -9,7 +10,8 @@ def dna_to_rna(dna_seq):
 
 def main():
     in_data = ''
-    with open('input.txt') as fp:
+    current_dir = pathlib.Path(__file__).parent
+    with open(f'{current_dir}/input.txt') as fp:
         in_data = fp.read()
     print(dna_to_rna(in_data))
 

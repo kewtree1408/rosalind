@@ -13,7 +13,8 @@ def nucleo_stats(dna_seq):
 
 def main():
     in_data = ''
-    with open('input.txt') as fp:
+    current_dir = pathlib.Path(__file__).parent
+    with open(f'{current_dir}/input.txt') as fp:
         in_data = fp.read()
     print(' '.join(map(str, nucleo_stats(in_data))))
 

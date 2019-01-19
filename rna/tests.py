@@ -4,7 +4,7 @@ from solution import dna_to_rna
 import unittest
 
 
-class TestDNA(unittest.TestCase):
+class TestRNA(unittest.TestCase):
     def test_sample(self):
         dna_seq = 'GATGGAACTTGACTACGTAAATT'
         rna_seq = 'GAUGGAACUUGACUACGUAAAUU'
