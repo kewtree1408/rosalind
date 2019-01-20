@@ -20,38 +20,39 @@ def get_prob_of_dominant(k, m, n):
         'Aa+Aa': 3 / 4,
         'aa+aa': 0,
     }
-    event_propapilities = {}
+    event_probabilities = {}
     totals = k + m + n
 
     # Event: AA+Aa -> P(X=k, Y=m) + P(X=m, Y=k):
     P_km = k / totals * m / (totals - 1)
     P_mk = m / totals * k / (totals - 1)
-    event_propapilities['AA+Aa'] = P_km + P_mk
+    event_probabilities['AA+Aa'] = P_km + P_mk
 
     # Event: AA+aa -> P(X=k, Y=n) + P(X=n, Y=k):
     P_kn = k / totals * n / (totals - 1)
     P_nk = n / totals * k / (totals - 1)
-    event_propapilities['AA+aa'] = P_kn + P_nk
+    event_probabilities['AA+aa'] = P_kn + P_nk
 
     # Event: Aa+aa -> P(X=m, Y=n) +P(X=n, Y=m):
     P_mn = m / totals * n / (totals - 1)
     P_nm = n / totals * m / (totals - 1)
-    event_propapilities['Aa+aa'] = P_mn + P_nm
+    event_probabilities['Aa+aa'] = P_mn + P_nm
 
     # Event: AA+AA -> P(X=k, Y=k):
     P_kk = k / totals * (k - 1) / (totals - 1)
-    event_propapilities['AA+AA'] = P_kk
+    event_probabilities['AA+AA'] = P_kk
 
     # Event: Aa+Aa -> P(X=m, Y=m):
     P_mm = m / totals * (m - 1) / (totals - 1)
-    event_propapilities['Aa+Aa'] = P_mm
+    event_probabilities['Aa+Aa'] = P_mm
 
     # Event: aa+aa -> P(X=n, Y=n) + P(X=n, Y=n) = 0 (will be * 0, so just don't use it)
-    event_propapilities['aa+aa'] = 0
+    event_probabilities['aa+aa'] = 0
 
+    # Total probability is the sum of (prob of dominant factor * prob of the event)
     total_probability = 0
     for event in events:
-        total_probability += punnett_probabilities[event] * event_propapilities[event]
+        total_probability += punnett_probabilities[event] * event_probabilities[event]
     return round(total_probability, 5)
 
 
