@@ -8,7 +8,7 @@ except ImportError:
 import unittest
 
 
-class TestRabbitPairs(unittest.TestCase):
+class TestMendelLaw(unittest.TestCase):
     def test_sample(self):
         k = 2
         m = 2
@@ -61,7 +61,7 @@ class TestRabbitPairs(unittest.TestCase):
     def test_real(self):
         k = 26
         m = 26
-        n = 1
+        n = 21
         result = 0.78529
         assert get_prob_of_dominant(k, m, n) == result
 
